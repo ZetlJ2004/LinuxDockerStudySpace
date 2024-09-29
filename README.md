@@ -11,12 +11,16 @@
 Use the ISO file in Vbox to make your local virtual machine.
 
 ### Check your network
-`ping www.baidu.com`
+```sh
+ping www.baidu.com
+```
 <hr>
 use this sentence to check your network,for me,I can't connect net.
 
 ### Save network
-`ls /etc/sysconfig/network-scripts/`
+```sh
+ls /etc/sysconfig/network-scripts/
+```
 
 use this sentence to check your network files,the first file is what you need.
 
@@ -31,16 +35,25 @@ Then open it and make ONBOOT to yes
 
 ### Finish Qusetion
 Now you have network to ping,you can change these:
->`vi /etc/yum.repos.d/CentOS-Base.repo`
 >
->可以通过 vi 命令编辑 /etc/yum.repos.d/CentOS-Base.repo 文件，将其中的 mirrorlist 行用 # 号注释掉，并将 baseurl 行取消注释，并修改为其他可靠的镜像地址。
->如将下图四个 baseurl 地址按顺序修改为阿里云的镜像地址：
+```sh
+vi /etc/yum.repos.d/CentOS-Base.repo
+```
 >
->`baseurl=http://mirrors.aliyun.com/centos/$releasever/os/$basearch/
+可以通过 vi 命令编辑 /etc/yum.repos.d/CentOS-Base.repo 文件，将其中的 mirrorlist 行用 # 号注释掉，并将 baseurl 行取消注释，并修改为其他可靠的镜像地址。
+如将下图四个 baseurl 地址按顺序修改为阿里云的镜像地址：
+```sh
+baseurl=http://mirrors.aliyun.com/centos/$releasever/os/$basearch/
+```
+```sh
 baseurl=http://mirrors.aliyun.com/centos/$releasever/updates/$basearch/
+```
+```sh
 baseurl=http://mirrors.aliyun.com/centos/$releasever/extras/$basearch/
-baseurl=http://mirrors.aliyun.com/centos/$releasever/centosplus/$basearch/`
->
+```
+```sh
+baseurl=http://mirrors.aliyun.com/centos/$releasever/centosplus/$basearch/
+```
 >*原文链接：https://blog.csdn.net/weixin_52597907/article/details/141113817*
 <hr>
 
@@ -48,11 +61,15 @@ baseurl=http://mirrors.aliyun.com/centos/$releasever/centosplus/$basearch/`
 **Open SSH service in Vbox**
 Install SSH service:
 
-`sudo apt-get install openssh-server`
+```sh
+sudo apt-get install openssh-server
+```
 
 Open SSH service:
 
-`sudo service ssh start`
+```sh
+sudo service ssh start
+```
 
 **端口转发**
 
@@ -72,9 +89,13 @@ Install the package (which provides the utility) and set up the repository.
 
 ***yum-utils & yum-config-manager***
 
-`sudo yum install -y yum-utils`
+```sh
+sudo yum install -y yum-utils
+```
 
-`sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo`
+```sh
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+```
 
 **Install Docker Engine**
 
@@ -90,10 +111,14 @@ If prompted to accept the GPG key, verify that the fingerprint matches , and if 
 This command installs Docker, but it doesn't start Docker. It also creates a group, however, it doesn't add any users to the group by default.
 2.Start Docker.
 
-`sudo systemctl start docker`
+```sh
+sudo systemctl start docker
+```
 
 3.Verify that the Docker Engine installation is successful by running the image.hello-world
 
-`sudo docker run hello-world`
+```sh
+sudo docker run hello-world
+```
 
 This command downloads a test image and runs it in a container. When the container runs, it prints a confirmation message and exits.
